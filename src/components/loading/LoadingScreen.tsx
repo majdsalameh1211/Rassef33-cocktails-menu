@@ -136,16 +136,6 @@ export default function LoadingScreen() {
         />
       </div>
 
-      {/* ── Dark scrim over image ─────────────────────────────────────────── */}
-      <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          zIndex: 1,
-          background: 'linear-gradient(to bottom, rgba(10,10,10,0.85), rgba(10,10,10,0.6), rgba(10,10,10,0.85))',
-        }}
-      />
-
       {/* ── Top half ──────────────────────────────────────────────────────── */}
       <div
         ref={topHalfRef}
@@ -165,7 +155,7 @@ export default function LoadingScreen() {
           ref={barMenuRef}
           style={{
             fontFamily: 'var(--font-inter)',
-            fontSize: '8px',
+            fontSize: '17px',
             letterSpacing: '0.35em',
             textTransform: 'uppercase',
             color: '#a09880',
@@ -264,7 +254,7 @@ export default function LoadingScreen() {
           ref={creditRef}
           style={{
             fontFamily: 'var(--font-inter)',
-            fontSize: '7px',
+            fontSize: '12px',
             letterSpacing: '0.2em',
             textTransform: 'uppercase',
             color: '#a09880',
