@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 
@@ -118,12 +119,33 @@ export default function LoadingScreen() {
       ref={containerRef}
       style={{
         height: '100dvh',
-        backgroundColor: '#0a0a0a',
+        position: 'relative',
         display: 'flex',
         flexDirection: 'column',
         overflow: 'hidden',
       }}
     >
+      {/* ── Background image ──────────────────────────────────────────────── */}
+      <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+        <Image
+          src="/images/loading_background.png"
+          alt=""
+          fill
+          priority
+          style={{ objectFit: 'cover', objectPosition: 'center top' }}
+        />
+      </div>
+
+      {/* ── Dark scrim over image ─────────────────────────────────────────── */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 1,
+          background: 'linear-gradient(to bottom, rgba(10,10,10,0.85), rgba(10,10,10,0.6), rgba(10,10,10,0.85))',
+        }}
+      />
+
       {/* ── Top half ──────────────────────────────────────────────────────── */}
       <div
         ref={topHalfRef}
@@ -134,6 +156,8 @@ export default function LoadingScreen() {
           alignItems: 'center',
           justifyContent: 'center',
           gap: '6px',
+          position: 'relative',
+          zIndex: 2,
         }}
       >
         {/* "BAR MENU" label */}
@@ -195,6 +219,8 @@ export default function LoadingScreen() {
           justifyContent: 'center',
           padding: '0 28px',
           gap: '10px',
+          position: 'relative',
+          zIndex: 2,
         }}
       >
         {/* Progress bar track */}

@@ -122,6 +122,7 @@ export default function CocktailCard({
 
             {/* Glass image — fixed container receives motion values; img fills it */}
             <motion.div
+              key={cocktail.id}
               style={{
                 position: 'absolute',
                 width: '260px',

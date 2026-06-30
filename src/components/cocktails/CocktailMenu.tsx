@@ -44,6 +44,14 @@ export default function CocktailMenu() {
   const isGlassAnimating    = useRef(false)
   const prefersReducedMotion = useRef(false)
 
+  // ── Mount: preload all glass images so swipes never show a stale frame ─────
+  useEffect(() => {
+    cocktails.forEach(c => {
+      const img = new Image()
+      img.src = c.glassImage
+    })
+  }, [])
+
   // ── Mount: detect reduced motion + run first-load entrance ────────────────
   useEffect(() => {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
